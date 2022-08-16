@@ -1,0 +1,76 @@
+*{
+    box-sizing: border-box;
+    outline: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+:root{
+ --corPrim: #05c789;
+ --corPrimDarker: #06885f;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: var(--corPrim);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+.container{
+    max-width: 640px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form input, form label, form button{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+form input{
+    font-size: 24px;
+    height: 50px;
+    padding: 0 20px;
+}
+form input:focus{
+    outline: 1px solid var(--corPrim);
+}
+form button{
+    background-color: var(--corPrim);
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    height: 50px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+form button:hover{
+    background-color: var(--corPrimDarker);
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cpf-gerado{
+    font-size: 2em;
+    color: var(--corPrim);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+.botao{
+    text-align: center;
+}
+
+.botao-gera{
+    margin-top: 30px;
+}
+.botao-gera:hover{
+    cursor: pointer;
+    background-color: rgb(196, 196, 196);
+}

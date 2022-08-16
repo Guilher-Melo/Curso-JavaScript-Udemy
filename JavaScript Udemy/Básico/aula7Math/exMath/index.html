@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício</title>
+</head>
+<body>
+    <h1 id="num"></h1>
+    <p id="raiz"></p>
+    <p id="inteiro"></p>
+    <p id="nan"></p>
+    <p id="baixo"></p>
+    <p id="cima"></p>
+    <p id="duascs"></p>
+</body>
+<script>
+    let num = Number(prompt("Digite um número"))
+    let titulo = document.getElementById("num")
+    titulo.innerHTML = `Seu número é ${num}`
+    let raiz = Math.sqrt(num)
+    let int = Number.isInteger(num)
+    let nan = Number.isNaN(num)
+    let arrendondaBaixo = Math.floor(num)
+    let arredondaCima = Math.ceil(num)
+    let duascasas = num.toFixed(2)
+
+    let respostaRaiz = document.getElementById("raiz")
+    respostaRaiz.innerHTML = `Raiz quadrada: ${raiz}`
+    let respostaInt = document.getElementById("inteiro")
+    respostaInt.innerHTML = `${num} é inteiro: ${int}`
+    let respostaNan = document.getElementById ("nan")
+    respostaNan.innerHTML = `É NaN: ${nan}`
+    let respostaBaixo = document.getElementById("baixo")
+    respostaBaixo.innerHTML = `Arredondando para baixo: ${arrendondaBaixo}`
+    let respostaCima = document.getElementById ("cima")
+    respostaCima.innerHTML = `Arredondando para cima: ${arredondaCima}`
+    let respostaCasa = document.getElementById("duascs")
+    respostaCasa.innerHTML = `Com duas casas decimais: ${duascasas}`
+</script>
+</html>
