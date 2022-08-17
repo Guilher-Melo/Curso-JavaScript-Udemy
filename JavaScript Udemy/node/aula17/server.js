@@ -23,7 +23,7 @@ const {meuMiddleware,checkCsrfErro, csrfToken } = require('./src/Middlewares/mid
 
 
 app.use(express.urlencoded({extended: true}));
-
+app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.use(helmet());
