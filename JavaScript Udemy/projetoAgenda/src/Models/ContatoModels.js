@@ -30,7 +30,7 @@ Contato.prototype.register = async function(){
 }
 
 Contato.prototype.valida = function() {
-    //Validar email e senha
+    //Validar email
     this.cleanUp();
     // Validando o email
     if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push('E-mail inválido');
@@ -55,5 +55,11 @@ Contato.prototype.cleanUp = function() {
     };
 };
 
+Contato.prototype.edit = async function(id){
+    if(typeof id !== 'string') return;
+    this.valida();
+    if(this.errors.length > 0) return;
+    this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, {new:true});
+}
 
 module.exports = Contato;
