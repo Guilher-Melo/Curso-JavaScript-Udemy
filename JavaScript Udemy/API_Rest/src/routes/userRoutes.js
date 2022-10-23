@@ -4,12 +4,14 @@ import userController from '../controllers/UserController';
 import loginRequired from '../middlewares/loginRequired';
 
 const router = new Router();
-
-router.post('/', userController.store);
-router.get('/', loginRequired, userController.index);
+// Não deveriam existir
+router.get('/', userController.index);
 router.get('/:id', userController.show);
-router.put('/:id', userController.update);
-router.delete('/:id', userController.delete);
+
+// Esses deveriam existir
+router.post('/', userController.store);
+router.put('/', loginRequired, userController.update);
+router.delete('/', loginRequired, userController.delete);
 
 export default router;
 
