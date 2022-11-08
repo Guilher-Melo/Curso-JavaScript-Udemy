@@ -6,19 +6,15 @@ module.exports = {
     node: true,
   },
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
     'airbnb',
-    'eslint:recommended',
-  ],
-  overrides: [
   ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
-  parser: [
-    '@babel/eslint-parser',
-  ],
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -26,10 +22,16 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-  ],
+  plugins: ['react'],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-filename-extension': 'off',
+    'react/state-in-constructor': 'off',
+    'react/no-unused-state': 'off',
   },
 };
