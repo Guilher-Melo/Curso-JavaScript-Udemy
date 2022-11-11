@@ -33,6 +33,6 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'react/state-in-constructor': 'off',
     'react/no-unused-state': 'off',
-    'import/no-duplicates': 'off',
+    'react/forbid-prop-types': 'off',
   },
 };
