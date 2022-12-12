@@ -28,6 +28,11 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   font-weight: 700;
+  transition: all 200ms;
+}
+
+button:hover {
+  filter: brightness(75%);
 }
 
 a {
