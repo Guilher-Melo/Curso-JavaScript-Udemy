@@ -12,11 +12,11 @@ export default function Alunos() {
 
   React.useEffect(() => {
     async function getData() {
-      const response = await axios.get('/alunos/');
+      const response = await axios.get('/alunos');
       setAlunos(response.data);
     }
     getData();
-  });
+  }, []);
   return (
     <Container>
       <h1>Alunos</h1>

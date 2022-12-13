@@ -4,9 +4,9 @@ import { persistReducer } from 'redux-persist';
 export default (reducers) => {
   const persistReducers = persistReducer(
     {
-      key: 'REACT_BASE',
+      key: 'CONSUMIR-API',
       storage,
-      whitelist: ['example'],
+      whitelist: ['auth'],
     },
     reducers
   );

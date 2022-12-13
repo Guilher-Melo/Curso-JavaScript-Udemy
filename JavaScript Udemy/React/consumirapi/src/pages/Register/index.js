@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import isEmail from 'validator/lib/isEmail';
+import { isEmail } from 'validator';
 import { get } from 'lodash';
 import axios from '../../services/axios';
 import history from '../../services/history';
