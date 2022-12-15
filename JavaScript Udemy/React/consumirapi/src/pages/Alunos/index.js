@@ -35,12 +35,16 @@ export default function Alunos() {
     e.currentTarget.remove();
   };
 
-  const handleDelete = async (e, id) => {
+  const handleDelete = async (e, id, index) => {
     e.persist();
     try {
       setIsLoading(true);
       await axios.delete(`/alunos/${id}`);
-      e.target.parentElement.remove();
+
+      const novosAlunos = [...alunos];
+      novosAlunos.splice(index, 1);
+      setAlunos(novosAlunos);
+
       setIsLoading(false);
     } catch (err) {
       const status = get(err, 'response.status', 0);
@@ -62,7 +66,7 @@ export default function Alunos() {
       <NovoAluno to="/aluno/">Novo Aluno</NovoAluno>
 
       <AlunoContainer>
-        {alunos.map((aluno) => (
+        {alunos.map((aluno, index) => (
           <div key={String(aluno.id)}>
             <ProfilePicture>
               {get(aluno, 'Fotos[0].url', false) ? (
@@ -83,7 +87,7 @@ export default function Alunos() {
               <FaWindowClose size={16} />
             </Link>
             <FaExclamation
-              onClick={(e) => handleDelete(e, aluno.id)}
+              onClick={(e) => handleDelete(e, aluno.id, index)}
               size={16}
               display="none"
               cursor="pointer"
