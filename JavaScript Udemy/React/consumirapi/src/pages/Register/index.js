@@ -8,6 +8,8 @@ import * as actions from '../../store/modules/auth/actions';
 
 import { Container } from '../../styles/GlobalStyles';
 import { Form } from './styled';
+import axios from '../../services/axios';
+import history from '../../services/history';
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -51,6 +53,23 @@ export default function Register() {
 
     dispatch(actions.registerRequest({ nome, email, password, id }));
   }
+
+  const deleteUser = async (e) => {
+    try {
+      e.preventDefault();
+      const ask = window.confirm('Deseja excluir sua conta? ');
+      if (ask) {
+        if (!id) return;
+        await axios.delete('/users/');
+        dispatch(actions.loginFailure());
+        toast.success('Usuário deletado com sucesso!');
+        history.push('/');
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error('Não foi possível excluir usuário! ');
+    }
+  };
   return (
     <Container>
       <Loading isLoading={isLoading} />
@@ -88,6 +107,13 @@ export default function Register() {
           />
         </label>
         <button type="submit">{id ? 'Salvar' : 'Criar minha conta'}</button>
+        {id ? (
+          <button type="submit" onClick={deleteUser}>
+            Deletar conta
+          </button>
+        ) : (
+          ''
+        )}
       </Form>
     </Container>
   );

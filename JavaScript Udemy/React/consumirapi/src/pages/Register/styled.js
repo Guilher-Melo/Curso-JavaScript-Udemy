@@ -24,4 +24,8 @@ export const Form = styled.form`
       border: 1px solid ${colors.primaryColor};
     }
   }
+
+  button {
+    margin-top: 20px;
+  }
 `;

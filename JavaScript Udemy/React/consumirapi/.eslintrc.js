@@ -29,5 +29,6 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'no-console': 'off',
     'react/jsx-no-bind': 'off',
+    'no-alert': 'off',
   },
 };
